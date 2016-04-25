@@ -23,7 +23,7 @@
 
 	<head>
 	<link rel="stylesheet" href="style.css">
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3zA_dGObzN9XY2Xdcb_lnsdcDUw8pzkY"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=ENTER YOUR GOOGLE MAPS API KEY HERE"></script>
 		<script>
 			var map;
 			var markerCnt;
