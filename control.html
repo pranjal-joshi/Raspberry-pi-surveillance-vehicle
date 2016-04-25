@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1></h1>
+<h1 id="demo1"></h1>
+<h2></h2>
+<h2 id="demo2"></h2>
+
+<script>
+var lastkey;
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+window.onkeydown=function checkKeyDown(e) {
+if(lastkey && lastkey.keyCode == e.keyCode)
+{
+	return;
+}
+lastkey=e;
+document.getElementById("demo1").innerHTML = "The Unicode value is: " + e.keyCode;
+    if(e.keyCode == "87") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?dir?servo?up");
+	}
+	if (e.keyCode == "83") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?dir?servo?down");
+	}
+	if (e.keyCode == "65") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?dir?servo?left");
+	}
+	if (e.keyCode == "68") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?dir?servo?right");
+	}
+	
+	if (e.keyCode == "38") {
+	httpGet("http://192.168.1.100/car.php/?dir=fwd");
+	}
+	if (e.keyCode == "40") {
+	httpGet("http://192.168.1.100/car.php/?dir=rev");
+	}
+	if (e.keyCode == "37") {
+	httpGet("http://192.168.1.100/car.php/?dir=left");
+	}
+	if (e.keyCode == "39") {
+	httpGet("http://192.168.1.100/car.php/?dir=right");
+	}
+}
+
+
+window.addEventListener("keyup",checkKeyUp);
+function checkKeyUp(e) {
+document.getElementById("demo2").innerHTML = "The Unicode value is: " + e.keyCode;
+    if (e.keyCode == "87") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?stop?servo?up");
+	}
+	if (e.keyCode == "83") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?stop?servo?down");
+	}
+	if (e.keyCode == "65") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?stop?servo?left");
+	}
+	if (e.keyCode == "68") {
+	httpGet("http://cyberfox.dlinkddns.com:98/?stop?servo?right");
+	}
+	
+	if (e.keyCode == "38") {
+	httpGet("http://192.168.1.100/car.php/?stop=1");
+	}
+	if (e.keyCode == "40") {
+	httpGet("http://192.168.1.100/car.php/?stop=1");
+	}
+	if (e.keyCode == "37") {
+	httpGet("http://192.168.1.100/car.php/?stop=1");
+	}
+	if (e.keyCode == "39") {
+	httpGet("http://192.168.1.100/car.php/?stop=1");
+	}
+}
+</script>
+
+</body>
+</html>
